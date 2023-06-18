@@ -1,0 +1,286 @@
+:root{
+  --bg: #1c1c1c;
+  --border-color: #eaeaea;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background-color: var(--bg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: "Public Sans";
+}
+
+#root{
+    max-width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.App{
+    width: 80%;
+    height: 100%;
+    border: thin solid #fff;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;  
+    align-items: center;
+    justify-content: space-evenly;
+    position: relative;
+    .counter{
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      color: #fff;
+    }
+    .wrapper {
+        width: 30%;
+        height: 30%;
+        display: block;
+        position: relative;
+        /* 147 */
+        .head {
+            width: 25px;
+            height: 30px;
+            border: 5px solid #fff;
+            border-radius: 50%;
+            display: block;
+            position: absolute;
+            top: 51px;
+            left: 50px;
+            z-index: 1;
+            animation: rock 1s alternate infinite ease-in-out;
+            transform-origin: center bottom;
+          }
+          
+          @keyframes rock {
+            0% {
+              transform: rotate(-10deg);
+            }
+            100% {
+              transform: rotate(10deg);
+            }
+          }
+
+          .torso {
+            width: 6px;
+            height: 50px;
+            border: 3px solid #fff;
+            display: block;
+            position: absolute;
+            top: 80px;
+            left: 59px;
+          }
+          
+          .leftleg {
+            width: 6px;
+            height: 30px;
+            border: 3px solid #fff;
+            display: block;
+            position: absolute;
+            top: 129px;
+            left: 59px;
+            transform: rotate(12deg);
+            transform-origin: top;
+          }
+          
+          .rightleg {
+            width: 6px;
+            height: 30px;
+            border: 3px solid #fff;
+            display: block;
+            position: absolute;
+            top: 129px;
+            left: 59px;
+            transform: rotate(-12deg);
+            transform-origin: top;
+          }
+          
+          .leftarm {
+            width: 30px;
+            height: 6px;
+            border: 3px solid #fff;
+            display: block;
+            position: absolute;
+            top: 86px;
+            left: 30px;
+            animation: wave 1s alternate infinite ease-in-out;
+            transform-origin: 100%;
+          }
+          
+          @keyframes wave {
+            0% {
+              transform: rotate(-20deg);
+            }
+            100% {
+              transform: rotate(40deg);
+            }
+          }
+          
+          .rightarm {
+            width: 30px;
+            height: 6px;
+            border: 3px solid #fff;
+            display: block;
+            position: absolute;
+            top: 86px;
+            left: 64px;
+            animation: wave2 1s alternate infinite ease-in-out;
+            transform-origin: 0%;
+        }
+        
+        @keyframes wave2 {
+            0% {
+                transform: rotate(20deg);
+            }
+            100% {
+                transform: rotate(-40deg);
+            }
+        }
+        
+        .leftfoot {
+            width: 10px;
+            height: 6px;
+            border: 3px solid #fff;
+            display: block;
+            position: absolute;
+            top: 152px;
+            left: 45px;
+            transform: rotate(8deg);
+        }
+        
+        .rightfoot {
+            width: 10px;
+            height: 6px;
+            border: 3px solid #fff;
+            display: block;
+            position: absolute;
+            top: 152px;
+            left: 68px;
+            transform: rotate(-8deg);
+        }
+    }
+        .letters-container{
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+        justify-content: center;
+        .letter{
+            font-size: 1em;
+            padding: 1em;
+            text-transform: capitalize;
+            margin: 5px;
+            border-radius: 5px;
+            background-color: var(--bg);
+            color: #fff;
+            border: thin solid #fff;
+            cursor: pointer;
+            transition: .2s linear;
+          }
+          .letter:hover{
+            background-color: #000;
+            font-weight: bold;
+          }
+    }
+    .word-meaning-cont{
+      width: 70%;
+      color: #fff;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-evenly;
+      height: 50%;
+      .word-slot{
+        width: 100%;
+        display: flex;
+        justify-content: space-evenly;
+        .letter-slot{
+          width: 15px;
+          height: 15px;
+          text-transform: capitalize;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          padding-bottom: 25px;
+          border-bottom: thin solid #fff;
+        }
+      }
+    }
+    .endGameBoard{
+      width: 85%;
+      height: 85vh;
+      background-color: var(--bg);
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      border: thin solid #fff;
+      transform: translate(-50%, -50%);
+      z-index: 1001;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      flex-direction: column;
+      padding: 10px;
+      p{
+        margin: 20px 0;
+        text-transform: capitalize;
+      }
+      .resetGame{
+        background-color: #28a745;
+        padding: 10px 20px;
+        border: thin solid #ffff;
+        border-radius: 10px;
+        cursor: pointer;
+        color: #fff;
+      }
+    }
+}
+
+
+@media only screen and (min-width: 600px) {
+    .App{
+        .letters-container{
+            .letter{
+                font-size: 1em;
+                padding: .9em;
+            }
+        }
+    }
+}
+
+
+@media only screen and (min-width: 700px) {
+  .App{
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: flex-start;
+    .word-meaning-cont{
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      .word-slot{
+        margin: 25px 0;
+      }
+      .clue-container{
+        text-align: center;
+      }
+      border: thin solid #fff;
+    }
+      .letters-container{
+        border: thin solid #fff;
+          .letter{
+              padding: .9em;
+          }
+      }
+  }
+}
